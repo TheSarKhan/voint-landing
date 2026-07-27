@@ -31,7 +31,6 @@ export function Platform({ t }: { t: Dictionary }) {
         })}
       </div>
 
-      <p className="mt-5 text-[15px] text-muted">{t.platform.note}</p>
     </section>
   );
 }
