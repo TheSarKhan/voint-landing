@@ -65,7 +65,7 @@ export function Hero({ t }: { t: Dictionary }) {
             </a>
             <a
               href="#imkanlar"
-              className="rounded-md border border-paper px-[26px] py-3.5 text-[16px] font-medium text-paper transition-colors hover:bg-paper hover:text-ink"
+              className="rounded-md bg-paper px-[26px] py-3.5 text-[16px] font-medium text-ink transition-colors hover:bg-wash"
             >
               {t.hero.ctaSecondary}
             </a>
