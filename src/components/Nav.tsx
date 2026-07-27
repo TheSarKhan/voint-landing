@@ -71,11 +71,12 @@ export function Nav({ t, lang }: { t: Dictionary; lang: Lang }) {
           >
             {t.nav.login}
           </a>
+          {/* Hero-dakı əsas düymə ilə eyni: yaşıl + ağ yazı, hover-də qaralır.
+              Hər iki scroll vəziyyətində eynidir — nav ağ fona keçəndə düymənin
+              də görkəmi dəyişsəydi, eyni düymə iki fərqli şey kimi oxunardı. */}
           <a
             href="#pilot"
-            className={`rounded-md bg-acid px-[18px] py-2.5 text-[15px] font-semibold tracking-[-0.01em] text-ink transition-colors ${
-              scrolled ? "hover:bg-ink hover:text-paper" : "hover:bg-paper"
-            }`}
+            className="rounded-md bg-acid px-[18px] py-2.5 text-[15px] font-semibold tracking-[-0.01em] text-paper transition-colors hover:bg-ink"
           >
             {t.nav.cta}
           </a>

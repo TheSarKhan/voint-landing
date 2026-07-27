@@ -2,8 +2,8 @@
 
 @theme {
   /* Voint landing — üç rəng, qalanı neytral çalarlardır.
-     Yaşıl (acid) yalnız fon kimi + qara mətnlə işlədilir: ağ üzərində
-     mətn kimi kontrastı 1.36:1-dir, yəni oxunmur. */
+     Yaşıl (acid) yalnız fon kimi işlədilir: ağ üzərində mətn kimi kontrastı
+     1.36:1-dir, yəni oxunmur. */
   --color-ink: #0a0a0a;
   --color-paper: #ffffff;
   --color-acid: #39ff14;
@@ -18,68 +18,82 @@
   --color-line-dark: #2a2a2a;
 }
 
-:root {
-  color-scheme: light;
-}
+/**
+ * DİQQƏT: bunlar mütləq `@layer base`-in içində olmalıdır.
+ *
+ * Tailwind v4 utility-ləri `@layer utilities`-ə yığır. CSS-də layer-siz
+ * qaydalar layer-li qaydaları HƏMİŞƏ üstələyir — spesifiklik nəzərə alınmadan.
+ * Aşağıdakı `a { color: inherit }` layer-dən kənarda yazılanda səhifədəki hər
+ * <a> elementi öz `text-*` sinfini itirirdi (yaşıl düymədəki ağ yazı qara
+ * görünürdü). Yeni element qaydası əlavə edəndə də bu blokun içinə yaz.
+ */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
 
-/* Nav-dakı keçidlər (#imkanlar, #panel, #qiymet) hədəfə sürüşərək gedir.
-   Aşağıdakı prefers-reduced-motion bloku bunu söndürür — istifadəçi azaldılmış
-   hərəkət istəyirsə ani keçid qalır. */
-html {
-  scroll-behavior: smooth;
-}
+  /* Nav-dakı keçidlər (#imkanlar, #panel, #qiymet) hədəfə sürüşərək gedir.
+     Aşağıdakı prefers-reduced-motion bloku bunu söndürür. */
+  html {
+    scroll-behavior: smooth;
+  }
 
-/* Nav `fixed`-dir: bu olmasa anchor hədəfinin başlığı nav-ın altında qalır. */
-[id] {
-  scroll-margin-top: 76px;
+  /* Nav `fixed`-dir: bu olmasa anchor hədəfinin başlığı nav-ın altında qalır. */
+  [id] {
+    scroll-margin-top: 76px;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-acid);
+    outline-offset: 2px;
+  }
 }
 
 /**
- * Səhifənin yeganə konteyneri. Sabit 1240px geniş ekranlarda kənarları həddindən
- * artıq boş qoyurdu, ona görə iki pillədə genişlənir. Mətn blokları öz `max-w`
- * məhdudiyyətini saxlayır — genişlənən yalnız kartlar və panel önizləməsidir,
- * yəni sətir uzunluğu oxunaqlı qalır.
+ * Səhifənin yeganə konteyneri. Sabit 1240px geniş ekranlarda kənarları
+ * həddindən artıq boş qoyurdu, ona görə iki pillədə genişlənir. Mətn blokları
+ * öz `max-w` məhdudiyyətini saxlayır — genişlənən yalnız kartlar və panel
+ * önizləməsidir, yəni sətir uzunluğu oxunaqlı qalır.
+ *
+ * `components` layer-indədir ki, lazım olsa utility sinifləri onu üstələsin.
  */
-.wrap {
-  width: 100%;
-  margin-inline: auto;
-  max-width: 1240px;
-  padding-inline: 20px;
-}
-
-@media (min-width: 860px) {
+@layer components {
   .wrap {
-    padding-inline: 32px;
+    width: 100%;
+    margin-inline: auto;
+    max-width: 1240px;
+    padding-inline: 20px;
   }
-}
 
-@media (min-width: 1536px) {
-  .wrap {
-    max-width: 1440px;
+  @media (min-width: 860px) {
+    .wrap {
+      padding-inline: 32px;
+    }
   }
-}
 
-@media (min-width: 1800px) {
-  .wrap {
-    max-width: 1680px;
-    padding-inline: 48px;
+  @media (min-width: 1536px) {
+    .wrap {
+      max-width: 1440px;
+    }
   }
-}
 
-body {
-  background-color: var(--color-paper);
-  color: var(--color-ink);
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-acid);
-  outline-offset: 2px;
+  @media (min-width: 1800px) {
+    .wrap {
+      max-width: 1680px;
+      padding-inline: 48px;
+    }
+  }
 }
 
 /* Hərəkətə həssaslıq — istifadəçi azaldılmış hərəkət istəyirsə hamısını söndür */
