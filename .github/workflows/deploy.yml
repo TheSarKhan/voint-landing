@@ -1,0 +1,43 @@
+name: Build və deploy
+
+# main-ə push olunanda: əvvəlcə build yoxlanılır, uğurlu olsa serverə deploy edilir.
+# voint-panel/voint-admin ilə eyni sxem — serverdəki /opt/voint/deploy.sh çağırılır.
+#
+# QEYD: deploy.sh hələ voint-landing-i tanımır. Serverdə skriptə landing bloku
+# əlavə olunmayana qədər bu job işləyəcək, amma landing yenilənməyəcək.
+# Nə əlavə edilməli olduğu README-nin "Serverdə quraşdırma" bölməsindədir.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      # next build tip yoxlanışını da edir — xəta varsa serverə çatmır
+      - run: npm run build
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Serverdə deploy skriptini işə sal
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 173.249.54.197
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          script: /opt/voint/deploy.sh
