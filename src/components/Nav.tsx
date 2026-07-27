@@ -34,7 +34,7 @@ export function Nav({ t, lang }: { t: Dictionary; lang: Lang }) {
       }`}
     >
       <div
-        className={`wrap flex items-center gap-10 transition-[height] duration-300 ${
+        className={`wrap relative flex items-center gap-10 transition-[height] duration-300 ${
           scrolled ? "h-[62px]" : "h-[88px]"
         }`}
       >
@@ -42,8 +42,11 @@ export function Nav({ t, lang }: { t: Dictionary; lang: Lang }) {
           <Logo size={scrolled ? 22 : 28} />
         </a>
 
+        {/* Mütləq mövqe ilə mərkəzləşdirilir: axın içində olsaydı, mərkəz
+            loqonun və sağ qrupun enindən asılı olardı və dil keçidi
+            dəyişəndə sürüşərdi. */}
         <nav
-          className={`hidden gap-7 text-[15px] font-medium min-[860px]:flex ${
+          className={`absolute left-1/2 hidden -translate-x-1/2 gap-7 text-[15px] font-medium min-[860px]:flex ${
             scrolled ? "text-muted" : "text-paper/75"
           }`}
         >

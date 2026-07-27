@@ -18,7 +18,7 @@ export function Footer({ t, lang }: { t: Dictionary; lang: Lang }) {
           >
             {CONTACT_EMAIL}
           </a>
-          <LangSwitch current={lang} variant="dark" />
+          <LangSwitch current={lang} variant="dark" placement="up" />
           <span className="text-muted">{t.footer.copyright}</span>
         </div>
       </div>

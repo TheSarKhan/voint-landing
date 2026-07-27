@@ -59,7 +59,7 @@ export function Hero({ t }: { t: Dictionary }) {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#pilot"
-              className="rounded-md bg-paper px-[26px] py-3.5 text-[16px] font-semibold tracking-[-0.01em] text-ink transition-colors hover:bg-acid"
+              className="rounded-md bg-acid px-[26px] py-3.5 text-[16px] font-semibold tracking-[-0.01em] text-paper transition-colors hover:bg-ink"
             >
               {t.hero.ctaPrimary}
             </a>
