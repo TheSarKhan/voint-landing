@@ -61,9 +61,8 @@ dəyişsə TypeScript xəta verir.
 - Hero videosu **müvəqqəti Pexels stok materialıdır** (`lib/site.ts`). Real video hazır
   olanda `public/hero.mp4`-ə qoyub oradakı iki sabiti dəyişmək lazımdır — uzaq host
   LCP-ni gecikdirir
-- Pilot formu `POST {API}/api/v1/leads` ünvanına gedir — **bu endpoint backend-də hələ
-  yoxdur**. O yazılana qədər form xəta göstərib email təklif edir
-- Backend-də CORS: `landing-voint.sarkhan.az` origin-i icazəli siyahıya əlavə olunmalıdır
+- Backend-də CORS: `landing-voint.sarkhan.az` origin-i serverdə
+  `VOINT_CORS_ALLOWED_ORIGINS`-ə əlavə olunmalıdır, yoxsa brauzer formu bloklayır
 
 ## Serverdə quraşdırma
 

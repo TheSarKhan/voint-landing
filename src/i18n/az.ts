@@ -33,7 +33,7 @@ const az = {
   },
 
   platform: {
-    title: "Bir zəngdə üç iş görülür.",
+    title: "Bir zəngdə altı iş görülür.",
     note: "Texnika icarəsi, klinika və restoranlar üçün hazır şablonlar.",
     cards: [
       {

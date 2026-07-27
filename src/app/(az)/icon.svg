@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .v { stroke: #0A0A0A }
+    @media (prefers-color-scheme: dark) { .v { stroke: #FFFFFF } }
+  </style>
+  <!-- Arclar V-nin sağ ucundan (20,16) radiuslanır — wordmark-dakı ilə eyni
+       həndəsə. Favicon ölçüsündə üç arc bir-birinə girir, ona görə iki arc. -->
+  <path class="v" d="M5 16 12.5 27 20 16" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="none" stroke="#39FF14" stroke-width="2.6" stroke-linecap="round">
+    <path d="M29.5 16A9.5 9.5 0 0 0 20 6.5"/>
+    <path d="M25.2 16A5.2 5.2 0 0 0 20 10.8"/>
+  </g>
+</svg>

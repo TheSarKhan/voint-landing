@@ -22,6 +22,50 @@
   color-scheme: light;
 }
 
+/* Nav-dakı keçidlər (#imkanlar, #panel, #qiymet) hədəfə sürüşərək gedir.
+   Aşağıdakı prefers-reduced-motion bloku bunu söndürür — istifadəçi azaldılmış
+   hərəkət istəyirsə ani keçid qalır. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Nav `fixed`-dir: bu olmasa anchor hədəfinin başlığı nav-ın altında qalır. */
+[id] {
+  scroll-margin-top: 76px;
+}
+
+/**
+ * Səhifənin yeganə konteyneri. Sabit 1240px geniş ekranlarda kənarları həddindən
+ * artıq boş qoyurdu, ona görə iki pillədə genişlənir. Mətn blokları öz `max-w`
+ * məhdudiyyətini saxlayır — genişlənən yalnız kartlar və panel önizləməsidir,
+ * yəni sətir uzunluğu oxunaqlı qalır.
+ */
+.wrap {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1240px;
+  padding-inline: 20px;
+}
+
+@media (min-width: 860px) {
+  .wrap {
+    padding-inline: 32px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .wrap {
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .wrap {
+    max-width: 1680px;
+    padding-inline: 48px;
+  }
+}
+
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);

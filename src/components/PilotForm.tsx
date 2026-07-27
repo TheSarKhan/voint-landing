@@ -35,7 +35,7 @@ export function PilotForm({ t }: { t: Dictionary }) {
 
     setStatus("submitting");
     try {
-      const res = await fetch(`${API_BASE_URL}/api/v1/leads`, {
+      const res = await fetch(`${API_BASE_URL}/api/v1/public/leads`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -48,7 +48,7 @@ export function PilotForm({ t }: { t: Dictionary }) {
 
   return (
     <section id="pilot" className="mt-24 border-t border-line bg-wash py-[88px]">
-      <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(320px,1fr))] items-start gap-14 px-5 min-[860px]:px-8">
+      <div className="wrap grid grid-cols-1 items-start gap-14 min-[860px]:grid-cols-2">
         <div>
           <h2 className="m-0 text-[clamp(30px,3.4vw,44px)] leading-[1.05] font-bold tracking-[-0.04em]">
             {t.pilot.title}

@@ -23,7 +23,8 @@ export function Hero({ t }: { t: Dictionary }) {
   return (
     <section
       id="top"
-      className="relative flex min-h-[calc(100vh-62px)] items-end overflow-hidden bg-ink"
+      // Nav fixed olduğu üçün hero səhifənin ən yuxarısından başlayır.
+      className="relative flex min-h-screen items-end overflow-hidden bg-ink"
     >
       <video
         ref={videoRef}
@@ -47,7 +48,7 @@ export function Hero({ t }: { t: Dictionary }) {
         aria-hidden
       />
 
-      <div className="relative mx-auto flex w-full max-w-[1240px] flex-wrap items-end justify-between gap-10 px-5 pt-24 pb-16 min-[860px]:px-8">
+      <div className="wrap relative flex flex-wrap items-end justify-between gap-10 pt-24 pb-16">
         <div className="max-w-[860px]">
           <h1 className="m-0 text-[clamp(40px,5.6vw,72px)] leading-[1.02] font-bold tracking-[-0.045em] text-balance text-paper">
             {t.hero.title}
@@ -58,7 +59,7 @@ export function Hero({ t }: { t: Dictionary }) {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#pilot"
-              className="rounded-md bg-acid px-[26px] py-3.5 text-[16px] font-semibold tracking-[-0.01em] text-ink transition-colors hover:bg-paper"
+              className="rounded-md bg-paper px-[26px] py-3.5 text-[16px] font-semibold tracking-[-0.01em] text-ink transition-colors hover:bg-acid"
             >
               {t.hero.ctaPrimary}
             </a>

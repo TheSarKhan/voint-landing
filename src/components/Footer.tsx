@@ -6,7 +6,7 @@ import { CONTACT_EMAIL } from "@/lib/site";
 export function Footer({ t, lang }: { t: Dictionary; lang: Lang }) {
   return (
     <footer className="bg-ink py-11 text-paper">
-      <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-x-10 gap-y-6 px-5 min-[860px]:px-8">
+      <div className="wrap flex flex-wrap items-center gap-x-10 gap-y-6">
         <Logo size={20} />
 
         <span className="text-[15px] text-on-dark-muted">{t.footer.tagline}</span>

@@ -5,15 +5,18 @@ export function Platform({ t }: { t: Dictionary }) {
   return (
     <section
       id="imkanlar"
-      className="mx-auto max-w-[1240px] px-5 pt-24 min-[860px]:px-8"
+      className="wrap pt-24"
     >
       <h2 className="m-0 mb-10 text-[clamp(30px,3.4vw,44px)] leading-[1.05] font-bold tracking-[-0.04em]">
         {t.platform.title}
       </h2>
 
-      {/* Kartlar arasındakı 1px xətt grid gap + fon rəngi ilə alınır —
-          hər karta ayrıca border qoymaqdan fərqli olaraq ikiqat xətt vermir. */}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-px overflow-hidden rounded-[10px] border border-line bg-line">
+      {/* Sütun sayı sabitdir: auto-fit 1240px-də 4 sütun verirdi və 6 kart
+          "4 + 2" şəklində düzülüb ikinci sıranın yarısını boş qoyurdu.
+          3 / 2 / 1 sütunda 6 kart həmişə tam sıra ilə bitir.
+          Aradakı 1px xətt grid gap + fon rəngi ilə alınır — hər karta ayrıca
+          border qoymaqdan fərqli olaraq ikiqat xətt vermir. */}
+      <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[10px] border border-line bg-line sm:grid-cols-2 min-[860px]:grid-cols-3">
         {t.platform.cards.map((card) => {
           const Icon = icons[card.icon as IconName];
           return (

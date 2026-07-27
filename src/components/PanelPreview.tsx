@@ -11,7 +11,7 @@ export function PanelPreview({ t }: { t: Dictionary }) {
       id="panel"
       className="mt-24 border-y border-line bg-wash py-[88px]"
     >
-      <div className="mx-auto max-w-[1240px] px-5 min-[860px]:px-8">
+      <div className="wrap">
         <h2 className="m-0 text-[clamp(30px,3.4vw,44px)] leading-[1.05] font-bold tracking-[-0.04em]">
           {t.panel.title}
         </h2>
